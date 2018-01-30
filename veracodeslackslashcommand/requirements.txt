@@ -1,0 +1,3 @@
+pytz==2017.3
+requests==2.18.4
+veracode_api_signing==17.9.1
