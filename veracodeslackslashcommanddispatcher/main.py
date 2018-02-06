@@ -22,12 +22,16 @@ def generate_error(error_text):
         "body": json.dumps({
             "response_type": "ephemeral",
             "attachments": [
-                {
-                    "fallback": error_text,
-                    "text": error_text,
-                    "color": sub_colour
-                }
-            ]
+            {
+                "fallback": "Error\n" + error_text,
+                "title": "Error",
+                "text": "```" + error_text + "```",
+                "mrkdwn_in": [
+                    "text"
+                ],
+                "color": sub_colour
+            }
+        ]
         })
     }
 
@@ -92,4 +96,4 @@ def lambda_handler(event, context):
             return response
 
         else:
-            return generate_error("Unknown command in `/veracode " + slack_data["text"] + "`")
+            return generate_error("Unknown command `/veracode " + slack_data["text"] + "`")

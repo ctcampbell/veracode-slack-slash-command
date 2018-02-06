@@ -34,6 +34,7 @@ class VeracodeAPI:
                                   .format(r.request.url, r.request.headers, r.request.body, r.status_code, r.headers, r.content))
                     raise VeracodeAPIError("HTTP response body is empty")
                 else:
+                    print(r.content)
                     return r.content
             else:
                 logging.debug("HTTP error for request:\r\n{}\r\n{}\r\n{}\r\n\r\n{}\r\n{}\r\n{}\r\n"

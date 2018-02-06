@@ -20,8 +20,12 @@ def generate_error(error_text):
         "response_type": "in_channel",
         "attachments": [
             {
-                "fallback": error_text,
-                "text": error_text,
+                "fallback": "Error\n" + error_text,
+                "title": "Error",
+                "text": "```" + error_text + "```",
+                "mrkdwn_in": [
+                    "text"
+                ],
                 "color": "#CCCCCC"
             }
         ]
